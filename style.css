@@ -22,6 +22,7 @@
 
 input {
     font-size: 50px;
+    text-align: right;
     padding-top: 10px;
     margin-left: 22px;
     margin-top: 20px;
@@ -44,8 +45,8 @@ button {
     margin: 4px;
 }
 
-.equal {
+#equal {
     border-radius: 50px;
-    height: 85px;
+    height: 80px;
     width: 160px;
 }
