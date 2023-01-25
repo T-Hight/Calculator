@@ -61,3 +61,11 @@ const equal = document.getElementById('equal').addEventListener('click', functio
 //assign mathematical functions to the symbol buttons
 
 //Create function for displaying the numerical values of the buttons on the display
+let buttons = document.querySelectorAll('.number');
+let input = document.getElementById('myInput');
+
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function(e) {
+        input.value = e.target.value;
+    })
+}
