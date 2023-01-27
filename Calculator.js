@@ -55,6 +55,41 @@ const decimal = document.getElementById('decimal').addEventListener('click', fun
 const equal = document.getElementById('equal').addEventListener('click', function(){
     alert('click')
 });
+//Addition
+const add = function(...args) {
+    let sumArray = 0;
+    for (const arg of args) {
+     sumArray += arg;
+    }
+    return sumArray;
+   }
+
+//Subtraction
+const subtract = function(a, b, ...args) {
+   let total = a - b;
+   for (const arg of args) {
+    total = total - arg;
+   }
+   return total;
+};
+
+//Multiplication
+const mult = function(...args) {
+    let total = 1;
+    for (const arg of args) {
+      total *= arg;
+    }
+    return total;
+  }
+
+//Division
+const div = function(a, b, ...args) {
+    let total = a / b;
+    for(const arg of args) {
+        total = total / arg;
+    }
+    return total;
+}
 
 //assign numerical values to the number buttons
 
