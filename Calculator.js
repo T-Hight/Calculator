@@ -1,71 +1,14 @@
-const one = document.getElementById('one').addEventListener('click', function(){
-    alert('click')
-});
-const two = document.getElementById('two').addEventListener('click', function(){
-    alert('click')
-});
-const three = document.getElementById('three').addEventListener('click', function(){
-    alert('click')
-});
-const four = document.getElementById('four').addEventListener('click', function(){
-    alert('click')
-});
-const five = document.getElementById('five').addEventListener('click', function(){
-    alert('click')
-});
-const six = document.getElementById('six').addEventListener('click', function(){
-    alert('click')
-});
-const seven = document.getElementById('seven').addEventListener('click', function(){
-    alert('click')
-});
-const eight = document.getElementById('eight').addEventListener('click', function(){
-    alert('click')
-});
-const nine = document.getElementById('nine').addEventListener('click', function(){
-    alert('click')
-});
-const zero = document.getElementById('zero').addEventListener('click', function(){
-    alert('click')
-});
-const allClear = document.getElementById('all-clear').addEventListener('click', function(){
-    alert('click')
-});
-const clear = document.getElementById('clear').addEventListener('click', function(){
-    alert('click')
-});
-const percent = document.getElementById('percent').addEventListener('click', function(){
-    alert('click')
-});
-const divide = document.getElementById('divide').addEventListener('click', function(){
-    alert('click')
-});
-const multiply = document.getElementById('multiply').addEventListener('click', function(){
-    alert('click')
-});
-const minus = document.getElementById('minus').addEventListener('click', function(){
-    alert('click')
-});
-const plus = document.getElementById('plus').addEventListener('click', function(){
-    alert('click')
-});
-const decimal = document.getElementById('decimal').addEventListener('click', function(){
-    alert('click')
-});
-const equal = document.getElementById('equal').addEventListener('click', function(){
-    alert('click')
-});
 //Addition
-const add = function(...args) {
-    let sumArray = 0;
+const add = function(a, b, ...args) {
+    let total = a + b;
     for (const arg of args) {
-     sumArray += arg;
+     total = total + arg;
     }
-    return sumArray;
+    return total;
    }
 
 //Subtraction
-const subtract = function(a, b, ...args) {
+const sub = function(a, b, ...args) {
    let total = a - b;
    for (const arg of args) {
     total = total - arg;
@@ -74,10 +17,10 @@ const subtract = function(a, b, ...args) {
 };
 
 //Multiplication
-const mult = function(...args) {
-    let total = 1;
+const mult = function(a, b, ...args) {
+    let total = a * b;
     for (const arg of args) {
-      total *= arg;
+      total = total * arg;
     }
     return total;
   }
@@ -89,6 +32,12 @@ const div = function(a, b, ...args) {
         total = total / arg;
     }
     return total;
+}
+
+//Create a new function operate that takes an operator and 2 numbers 
+//and then calls one of the above functions on the numbers.
+const operate = function() {
+    
 }
 
 //assign numerical values to the number buttons
