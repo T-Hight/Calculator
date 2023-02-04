@@ -111,6 +111,7 @@ operators.forEach((operator) => {
         clickedOperator = operator.value;
         previousOperand.textContent = (firstNumber + ' ' + clickedOperator);
         storedNumber = '';
+        decimal.disabled = false;
     })
 })
 
@@ -122,16 +123,19 @@ allClear.addEventListener('click', function(){
     result = '';
     previousOperand.textContent = '';
     currentOperand.textContent = 0;
+    decimal.disabled = false;
 })
 
 //Add event listener for the decimal button
-decimal.addEventListener('click', function() {
-    
+decimal.addEventListener('click', function(e) {
+    if (e.target.innerHTML === '.') {
+        decimal.disabled = true;
+    }
 })
 
 //Add event listener to delete the last number value chosen
-del.addEventListener('click', function() {
-    
+del.addEventListener('click', function(e) {
+    console.log(e);
 })
 
 //add event listener for the equal button
