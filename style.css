@@ -56,6 +56,21 @@ button {
     margin: 4px;
 }
 
+button:disabled {
+    font-size:large;
+    font-weight:bold;
+    color: black;
+    background-color: rgb(238, 235, 235);
+    border-top-color: rgb(128, 128, 128);
+    border-left-color: gray;
+    border-right-color: black;
+    border-bottom-color: black;
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    margin: 4px;
+}
+
 #equal {
     border-radius: 50px;
     height: 80px;
