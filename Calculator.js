@@ -65,7 +65,7 @@ const operate = function(a, b, c) {
                 break;
   
             case '/':
-                if(a === 0 || b === 0) {
+                if(a === '0' || b === '0') {
                     throw "Can't divide by 0!"
                 } else {
                 output = div(a, b)
@@ -100,16 +100,17 @@ numbers.forEach((number) => {
 //Add event listener to display and store operator buttons
 operators.forEach((operator) => {
     operator.addEventListener('click', function() {
+        
         if (result) {
-            storedNumber = result;
+            storedNumber = result; 
         }
-        else if(firstNumber && storedNumber) {
+        else if (firstNumber && storedNumber) {
             displayResult();
         }
-
+        
         firstNumber = storedNumber;
-        clickedOperator = operator.value;
-        previousOperand.textContent = (firstNumber + ' ' + clickedOperator);
+        firstOperator = operator.value;
+        previousOperand.textContent = (firstNumber + ' ' + firstOperator);
         storedNumber = '';
         decimal.disabled = false;
     })
@@ -118,8 +119,9 @@ operators.forEach((operator) => {
 //Add event listener to refresh display
 allClear.addEventListener('click', function(){
     storedNumber = '';
-    clickedOperator = '';
+    firstOperator = '';
     firstNumber = '';
+    secondOperator = '';
     result = '';
     previousOperand.textContent = '';
     currentOperand.textContent = 0;
@@ -134,8 +136,9 @@ decimal.addEventListener('click', function(e) {
 })
 
 //Add event listener to delete the last number value chosen
-del.addEventListener('click', function(e) {
-    console.log(e);
+del.addEventListener('click', function() {
+    currentOperand.textContent = currentOperand.textContent.slice(0, -1);
+    storedNumber = currentOperand.textContent;
 })
 
 //add event listener for the equal button
@@ -144,11 +147,14 @@ equals.addEventListener('click', function() {
 })
 
 function displayResult() {
-    result = operate(parseFloat(firstNumber), parseFloat(storedNumber), clickedOperator);
+    result = operate(parseFloat(firstNumber), parseFloat(storedNumber), firstOperator);
 
     currentOperand.textContent = result;
-    previousOperand.textContent = (firstNumber + ' ' + clickedOperator + ' ' + storedNumber + ' ' + '=');
-    console.log(clickedOperator);
-    console.log(storedNumber);
+    previousOperand.textContent = (firstNumber + ' ' + firstOperator + ' ' + storedNumber + ' ' + '=');
+}
+
+function updateDisplay() {
+    result = operate(parseFloat(firstNumber), parseFloat(storedNumber), firstOperator);
+    previousOperand.textContent = (firstNumber + ' ' + firstOperator);
 }
 
