@@ -104,9 +104,6 @@ operators.forEach((operator) => {
         if (result) {
             storedNumber = result; 
         }
-        else if (firstNumber && storedNumber) {
-            displayResult();
-        }
         
         firstNumber = storedNumber;
         firstOperator = operator.value;
@@ -153,8 +150,4 @@ function displayResult() {
     previousOperand.textContent = (firstNumber + ' ' + firstOperator + ' ' + storedNumber + ' ' + '=');
 }
 
-function updateDisplay() {
-    result = operate(parseFloat(firstNumber), parseFloat(storedNumber), firstOperator);
-    previousOperand.textContent = (firstNumber + ' ' + firstOperator);
-}
 
