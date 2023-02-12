@@ -82,9 +82,8 @@ const operate = function(a, b, c) {
 
 //Create storage variables for display values
 let storedNumber = '';
-let firstOperator = '';
+let Operator = '';
 let firstNumber = '';
-let secondOperator = '';
 let result = '';
 previousOperand.textContent = '';
 currentOperand.textContent = 0;
@@ -100,7 +99,7 @@ numbers.forEach((number) => {
 //Add event listener to display and store operator buttons
 operators.forEach((operator) => {
     operator.addEventListener('click', function() {
-        if (firstOperator !== '') {
+        if (Operator !== '') {
             updateDisplay();
         }
         if (result) {
@@ -108,8 +107,8 @@ operators.forEach((operator) => {
         }
         
         firstNumber = storedNumber;
-        firstOperator = operator.value;
-        previousOperand.textContent = (firstNumber + ' ' + firstOperator);
+        Operator = operator.value;
+        previousOperand.textContent = (firstNumber + ' ' + Operator);
         storedNumber = '';
         decimal.disabled = false;
     })
@@ -118,9 +117,8 @@ operators.forEach((operator) => {
 //Add event listener to refresh display
 allClear.addEventListener('click', function(){
     storedNumber = '';
-    firstOperator = '';
+    Operator = '';
     firstNumber = '';
-    secondOperator = '';
     result = '';
     previousOperand.textContent = '';
     currentOperand.textContent = 0;
@@ -145,13 +143,20 @@ equals.addEventListener('click', function() {
     displayResult();
 })
 
+//add function to return result
 function displayResult() {
-    result = operate(parseFloat(firstNumber), parseFloat(storedNumber), firstOperator);
+    result = roundNumber( operate(parseFloat(firstNumber), parseFloat(storedNumber), Operator));
 
     currentOperand.textContent = result;
-    previousOperand.textContent = (firstNumber + ' ' + firstOperator + ' ' + storedNumber + ' ' + '=');
+    previousOperand.textContent = (firstNumber + ' ' + Operator + ' ' + storedNumber + ' ' + '=');
 }
 
+//add function to update display with multiple operands
 function updateDisplay() {
-    result = operate(parseFloat(firstNumber), parseFloat(storedNumber), firstOperator);
+    result = roundNumber( operate(parseFloat(firstNumber), parseFloat(storedNumber), Operator));
   }
+
+//add function to round numbers to one decimal point
+function roundNumber(number) {
+    return Math.round(number * 10) / 10;
+}
