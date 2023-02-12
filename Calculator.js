@@ -138,25 +138,25 @@ del.addEventListener('click', function() {
     storedNumber = currentOperand.textContent;
 })
 
-//add event listener for the equal button
+//Add event listener for the equal button
 equals.addEventListener('click', function() {
     displayResult();
 })
 
-//add function to return result
+//Add function to return result
 function displayResult() {
-    result = roundNumber( operate(parseFloat(firstNumber), parseFloat(storedNumber), Operator));
+    result = roundNumber(operate(parseFloat(firstNumber), parseFloat(storedNumber), Operator));
 
     currentOperand.textContent = result;
     previousOperand.textContent = (firstNumber + ' ' + Operator + ' ' + storedNumber + ' ' + '=');
 }
 
-//add function to update display with multiple operands
+//Add function to update display with multiple operands
 function updateDisplay() {
-    result = roundNumber( operate(parseFloat(firstNumber), parseFloat(storedNumber), Operator));
+    result = roundNumber(operate(parseFloat(firstNumber), parseFloat(storedNumber), Operator));
   }
 
-//add function to round numbers to one decimal point
+//Add function to round numbers to one decimal point
 function roundNumber(number) {
     return Math.round(number * 10) / 10;
 }
