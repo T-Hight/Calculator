@@ -100,7 +100,9 @@ numbers.forEach((number) => {
 //Add event listener to display and store operator buttons
 operators.forEach((operator) => {
     operator.addEventListener('click', function() {
-        
+        if (firstOperator !== '') {
+            updateDisplay();
+        }
         if (result) {
             storedNumber = result; 
         }
@@ -150,4 +152,6 @@ function displayResult() {
     previousOperand.textContent = (firstNumber + ' ' + firstOperator + ' ' + storedNumber + ' ' + '=');
 }
 
-
+function updateDisplay() {
+    result = operate(parseFloat(firstNumber), parseFloat(storedNumber), firstOperator);
+  }
